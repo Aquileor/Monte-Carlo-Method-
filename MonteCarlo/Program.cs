@@ -8,44 +8,79 @@ namespace MonteCarlo
 {
     public class Program
     {
-        public static double Monte(int n)
-        {
+        /*
+            public double X, Y;
 
-           double X = 0.0, Y = 0.0;
+            public Program(double X, double Y)
+            {
+                this.X = X;
+                this.Y = Y;
+            }
 
-           double within = 0.0;
+            public double Monte(int n)
+            {
+                Random random = new Random();
 
+                double within = 0.0;
+
+                for (double i = 0; i < n; i++)
+                {
+                    this.X = random.NextDouble();
+                    this.Y = random.NextDouble();
+
+                    if (Math.Pow(X, 2) + Math.Pow(Y, 2) <= 1)
+                    {
+                        within++;
+                    }
+
+                }
+                return 4.0 * ((double)within / (double)n);
+            }
+
+*/
+
+
+
+            
+            public static double Monte(int n)
+            {
+
+
+            double X = 0.0, Y = 0.0;
             Random random = new Random();
 
-            for (double i = 0; i < n; i++)
-            {
-                X = random.NextDouble();
-                Y = random.NextDouble();
+                double within = 0.0;
 
-
-                if (Math.Pow(X, 2) + Math.Pow(Y, 2) <= 1)
-
+                for (double i = 0; i < n; i++)
                 {
-                    within++;
-                }
+                    X = random.NextDouble();
+                    Y = random.NextDouble();
 
-            } return 4.0 * within / n;
-        }
+                    if (Math.Pow(X, 2) + Math.Pow(Y, 2) <= 1)
+                    {
+                        within++;
+                    }
 
-        public static void Main()
-        {
-            Console.WriteLine("\nThe answers for each test are displayed below.\n");
+                } return 4.0 * ((double) within / (double) n);
+            }
 
-            int num = 1;
-            for (int n = 0; n < 7; n++)
+        
+
+            public static void Main()
             {
-                num *= 10;
+                Console.WriteLine("\nThe answers for each test are displayed below.\n");
 
-                Console.WriteLine($"Amount of times the code was ran {num} : Output of the code { Monte(num)}\n");
+                int num = 1;
+                for (int n = 0; n < 7; n++)
+                {
+                    num *= 10;
+
+                    Console.WriteLine($"Amount of times the code was ran {num} : Output of the code { Monte(num)}\n");
+                }
             }
         }
     }
-}
+
 
 
 /*
@@ -64,7 +99,7 @@ then this program would not truly be random.
 
 4. Find a parameter that requires multiple seconds of run time. What is that parameter? How accurate is the estimated value of π.
 
-The parameter that requires multiple seconds of run time is 10,000,000. The out put was 3.1409304 which is one of the closest so far to acutal 
+The parameter that requires multiple seconds of run time is 10,000,000. The out put was  3.141392 which is one of the closest so far to acutal 
 Pi which is 3.14159.
 
 5. Research one other use of Monte-Carlo methods. Record it in your exercise submission and be prepared to discuss it in class.
