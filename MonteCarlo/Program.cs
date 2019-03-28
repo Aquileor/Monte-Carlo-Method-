@@ -11,36 +11,38 @@ public class Program
 
         public static void Main(string[] args)
         {
-            double inwith = 0.0;
-            Random varaible = new Random();
-
             Console.WriteLine("How many random points do you want the Monte Carlo method to run?");
             Console.Write("\nInput answer: ");
 
-            int variable = Convert.ToInt32(Console.ReadLine());
+            int arrayvariable = Convert.ToInt32(Console.ReadLine());
 
-            MonterCarlo[] PossiblePoint = new MonterCarlo[variable];
+            MonterCarlo[] coord = new MonterCarlo[arrayvariable];
 
-            for (int i = 0; i < variable; i++)
+            Random varaible = new Random();
+
+            int counter = 0;
+
+            for (int i = 0; i < arrayvariable; i++)
             {
 
-                PossiblePoint[i] = new MonterCarlo(varaible);
+                coord[i] = new MonterCarlo(varaible);
 
-                if ( PossiblePoint[i].Monte(PossiblePoint[i]) <= 1 )
+                if (coord[i].Monte() <= 1 )
 
                 {
-                    inwith++;
+                    counter++;
                 }
 
             }
+            double avg = (counter / (double)coord.Length) * 4;
 
-            double Answer = 4.0 * ((double)inwith / (double)variable);
+            double Answer = 4.0 * ((double)counter / (double)arrayvariable);
             double Diffrence = Math.Abs(Answer - Math.PI );
 
 
             Console.WriteLine("\nThe answers for different tests are displayed below.\n");
-            Console.WriteLine($"Remember that true Pi equlas {Math.PI}");
-            Console.WriteLine($"\nThe answer for your input is {Answer}\n");
+            Console.WriteLine($"Counter{counter} Rember that true Pi equlas {Math.PI}");
+            Console.WriteLine($"\nThe answer {avg} for your input is {Answer}\n");
             Console.WriteLine($"The diffrence between True pi and your answer is {Diffrence}\n");
 
 
@@ -80,25 +82,27 @@ public class Program
             return 4.0 * ((double)within / (double)n);
         }
     }
-}
-public struct MonterCarlo
-{
-    public double X, Y;
 
-    public MonterCarlo(double X, double Y)
+    public struct MonterCarlo
     {
-        this.X = X;
-        this.Y = Y;
-    }
-    public MonterCarlo(Random randomValue)
-    {
-        X = randomValue.NextDouble();
-        Y = randomValue.NextDouble();
-    }
+        public double X, Y;
 
-    public double Monte(MonterCarlo equation)
-    {
-        return Math.Sqrt(Math.Pow(equation.X, 2) + Math.Pow(equation.Y, 2));
+        public MonterCarlo(double X, double Y)
+        {
+            this.X = X;
+            this.Y = Y;
+        }
+        public MonterCarlo(Random randomValue)
+        {
+            this.X = randomValue.NextDouble();
+            this.Y = randomValue.NextDouble();
+        }
+
+        public double Monte()
+        {
+            return Math.Sqrt(Math.Pow(this.X, 2) + Math.Pow(this.Y, 2));
+        }
     }
 }
+
 
