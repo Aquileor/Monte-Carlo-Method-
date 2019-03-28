@@ -34,15 +34,13 @@ public class Program
                 }
 
             }
+
             double avg = (counter / (double)coord.Length) * 4;
-
-            double Answer = 4.0 * ((double)counter / (double)arrayvariable);
-            double Diffrence = Math.Abs(Answer - Math.PI );
+            double Diffrence = Math.Abs(avg - Math.PI );
 
 
-            Console.WriteLine("\nThe answers for different tests are displayed below.\n");
-            Console.WriteLine($"Counter{counter} Rember that true Pi equlas {Math.PI}");
-            Console.WriteLine($"\nThe answer {avg} for your input is {Answer}\n");
+            Console.WriteLine($"\nCounter equals {counter} and True Pi equals {Math.PI}");
+            Console.WriteLine($"\nThe answer for your input is {avg}\n");
             Console.WriteLine($"The diffrence between True pi and your answer is {Diffrence}\n");
 
 
@@ -50,7 +48,7 @@ public class Program
 
 
             int num = 1;
-            for (int n = 0; n < 6; n++)
+            for (int n = 0; n < 5; n++)
             {
                 num *= 10;
 
@@ -83,26 +81,7 @@ public class Program
         }
     }
 
-    public struct MonterCarlo
-    {
-        public double X, Y;
-
-        public MonterCarlo(double X, double Y)
-        {
-            this.X = X;
-            this.Y = Y;
-        }
-        public MonterCarlo(Random randomValue)
-        {
-            this.X = randomValue.NextDouble();
-            this.Y = randomValue.NextDouble();
-        }
-
-        public double Monte()
-        {
-            return Math.Sqrt(Math.Pow(this.X, 2) + Math.Pow(this.Y, 2));
-        }
-    }
+   
 }
 
 
