@@ -34,13 +34,14 @@ public class Program
                 }
 
             }
+            double Answer = (counter / (double)coord.Length) * 4;
 
-            double avg = (counter / (double)coord.Length) * 4;
-            double Diffrence = Math.Abs(avg - Math.PI );
+            double Diffrence = Math.Abs(Answer - Math.PI );
 
 
-            Console.WriteLine($"\nCounter equals {counter} and True Pi equals {Math.PI}");
-            Console.WriteLine($"\nThe answer for your input is {avg}\n");
+            Console.WriteLine("\nThe answers for different tests are displayed below.\n");
+            Console.WriteLine($"Counter{counter} Rember that true Pi equlas {Math.PI}");
+            Console.WriteLine($"\nThe answer for your input is {Answer}\n");
             Console.WriteLine($"The diffrence between True pi and your answer is {Diffrence}\n");
 
 
